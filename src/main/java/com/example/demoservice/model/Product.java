@@ -1,13 +1,12 @@
 package com.example.demoservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Date;
-import java.util.List;
 
 @Entity @NoArgsConstructor @AllArgsConstructor @Getter @Setter
 public class Product {
@@ -22,6 +21,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "category")
+    @JsonIgnore
     private Category category;
 
     private String provider;

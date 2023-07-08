@@ -11,6 +11,8 @@ import com.example.demoservice.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,7 +47,6 @@ public class DemoServiceApplication implements CommandLineRunner {
 		SpringApplication.run(DemoServiceApplication.class, args);
 	}
 
-
 	@Override
 	public void run(String... args) throws Exception {
 		User user1 = new User(null,"John Doe", "123 Main St", "john@example.com", "password123");
@@ -56,9 +57,9 @@ public class DemoServiceApplication implements CommandLineRunner {
 		userRepository.save(user2);
 		userRepository.save(user3);
 
-		Category category1 = new Category(null,"Skincare", "Products for skincare routine");
-		Category category2 = new Category(null,"Haircare", "Products for hair care");
-		Category category3 = new Category(null,"Makeup", "Cosmetics for makeup");
+		Category category1 = new Category(null,"Skincare", "Products for skincare routine", null);
+		Category category2 = new Category(null,"Haircare", "Products for hair care", null);
+		Category category3 = new Category(null,"Makeup", "Cosmetics for makeup", null);
 
 		categoryRepository.save(category1);
 		categoryRepository.save(category2);
@@ -79,6 +80,5 @@ public class DemoServiceApplication implements CommandLineRunner {
 		Command command = new Command(null,user1, products, new Date());
 
 		commandRepository.save(command);
-
 	}
 }

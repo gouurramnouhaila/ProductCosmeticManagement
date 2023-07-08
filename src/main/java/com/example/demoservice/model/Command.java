@@ -26,5 +26,4 @@ public class Command {
     private List<Product> products;
 
     private Date date;
-
 }
